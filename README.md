@@ -31,14 +31,11 @@ npm run pdf      # 合并 html/ 下所有页面，导出 prototype.pdf
 ## 目录结构
 
 ```
-src/index.html                 # 首页（桌面示例）
-src/pages/about/index.html     # 关于页
-src/pages/contact/index.html   # 联系页（新增页面加子目录即可）
-src/pages/login/index.html     # APP 登录页（移动端原型）
+src/pages/login/index.html     # APP 登录页（原型入口）
 src/pages/home/index.html      # APP 主页
 src/pages/user/index.html      # APP 用户中心
 src/pages/password/index.html  # APP 修改密码
-src/partials/header.html       # 桌面公共头部（doctype/head/body + 顶部导航）
+src/partials/header.html       # 桌面公共头部（备用，新增桌面页可用）
 src/partials/footer.html       # 桌面公共底部（页脚 / main.ts / 闭合标签）
 src/partials/app-header.html   # APP 公共头部：手机壳 + 顶部标题栏（左槽参数化，返回用 history.back()）
 src/partials/app-footer.html   # APP 公共底部

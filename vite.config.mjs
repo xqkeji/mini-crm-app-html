@@ -78,9 +78,9 @@ export default defineConfig({
   publicDir: '../public',
   // 相对路径，方便构建产物直接以 file:// 打开 / 导出 PDF
   base: './',
-  // 开发/预览时自动打开浏览器（默认打开首页 /，多页应用可改成具体页面如 '/pages/login/index.html'）
+  // 开发/预览时自动打开浏览器（APP 原型入口为登录页）
   server: {
-    open: true,
+    open: '/pages/login/index.html',
   },
   plugins: [
     xqInclude(),
@@ -94,9 +94,6 @@ export default defineConfig({
     rollupOptions: {
       // 每个页面目录定义一个入口即可，xq-multi-input 会自动加入同目录其它 .html
       input: {
-        index: resolve(__dirname, 'src/index.html'),
-        about: resolve(__dirname, 'src/pages/about/index.html'),
-        contact: resolve(__dirname, 'src/pages/contact/index.html'),
         login: resolve(__dirname, 'src/pages/login/index.html'),
         home: resolve(__dirname, 'src/pages/home/index.html'),
         user: resolve(__dirname, 'src/pages/user/index.html'),
