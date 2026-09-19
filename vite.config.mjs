@@ -8,6 +8,9 @@ import xqMultiInput from 'vite-plugin-xq-multi-input'
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 export default defineConfig({
+  // 显式声明项目根目录（等同默认值 process.cwd()）。
+  // vite-plugin-xq-multi-input 在 dev 模式下会读取 config.root，未显式设置时为 undefined 会报错。
+  root: '.',
   // 相对路径，方便构建产物直接以 file:// 打开 / 导出 PDF
   base: './',
   plugins: [
@@ -24,6 +27,7 @@ export default defineConfig({
         index: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'pages/about/index.html'),
         contact: resolve(__dirname, 'pages/contact/index.html'),
+        login: resolve(__dirname, 'pages/login/index.html'),
       },
     },
   },

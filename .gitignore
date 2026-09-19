@@ -4,6 +4,10 @@ node_modules/
 # 构建产物
 dist/
 dist-ssr/
+.vite/
+
+# vite-plugin-xq-cp-dep 从 node_modules 拷贝生成的依赖目录
+/public/
 
 # 日志
 logs/
@@ -27,6 +31,3 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# Vite 缓存
-.vite/
