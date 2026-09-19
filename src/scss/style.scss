@@ -1,0 +1,184 @@
+:root {
+  --xq-accent: #0d6efd;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.xq-hero {
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.12), rgba(102, 16, 242, 0.12));
+}
+
+/* ===== 移动端 APP 原型：公共壳与顶部标题栏 ===== */
+
+// body.app-page：手机框外底色 + 水平居中；默认垂直居中，.app-top 贴顶
+body.app-page {
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f8f9fa; // bootstrap light，手机框外的底色
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.app-top {
+    align-items: flex-start;
+  }
+}
+
+.app-phone {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff; // 页面底色白色
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.08);
+
+  // 登录等卡片式页面：不定高、圆角、内边距
+  &.app-card {
+    min-height: 0;
+    padding: 2.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+// 顶部 primary 标题栏：左图标槽 + 居中标题
+.app-navbar {
+  background-color: var(--xq-accent); // bootstrap primary
+  color: #fff;
+  display: grid;
+  grid-template-columns: 3rem 1fr 3rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+
+  .nav-title {
+    grid-column: 2;
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .back-btn,
+  .avatar-btn {
+    grid-column: 1;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    padding: 0;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .back-btn i {
+    font-size: 1.5rem;
+  }
+
+  .avatar-btn i {
+    font-size: 1.9rem;
+  }
+}
+
+/* ===== 登录页 ===== */
+
+.login-title-box {
+  margin-bottom: 5rem; // 标题块与表单的间距加倍
+}
+
+.captcha-img {
+  width: 110px;
+  height: 38px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #dee2e6; // bootstrap border
+  border-radius: 0.375rem;
+  background-color: #e9ecef;
+}
+
+/* ===== 主页功能网格 ===== */
+
+.app-body {
+  flex: 1 0 auto;
+  padding: 1rem;
+}
+
+.feature-tile {
+  background-color: var(--xq-accent);
+  color: #fff;
+  border: 0;
+  border-radius: 0.6rem;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+
+  i {
+    font-size: 1.8rem;
+    color: #fff;
+  }
+
+  .tile-text {
+    font-size: 0.8rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+.feature-placeholder {
+  background-color: var(--xq-accent);
+  border-radius: 0.6rem;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}
+
+/* ===== 用户中心 ===== */
+
+.user-body {
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.user-row {
+  background-color: #f8f9fa; // bootstrap light
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+
+  .user-avatar {
+    font-size: 2rem;
+    color: var(--xq-accent);
+  }
+
+  .user-name {
+    font-size: 1.05rem;
+    color: #212529;
+  }
+}
+
+/* ===== 修改密码 ===== */
+
+.pwd-body {
+  padding: 1.25rem;
+}

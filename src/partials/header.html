@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?=$title?></title>
+  <!-- 第三方样式与脚本（bootstrap / bootstrap-icons）已统一在 src/ts/main.ts 里 import，
+       由 Vite 打包并按 base:'./' 自动注入各页面的相对路径 <link>/<script>，
+       兼容 http(s) 与 file://、任意嵌套层级，无需再手写内联脚本拼路径。 -->
+</head>
+<body class="<?=$docClass?>">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html">mini-crm-app-html</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/index.html">首页</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/about/index.html">关于</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/contact/index.html">联系</a></li>
+          <li class="nav-item"><a class="nav-link" href="/pages/login/index.html">APP 登录</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?=$title?></title>
+  <!-- 移动端 APP 原型公共头部：手机壳容器 + 顶部标题栏。
+       左槽为参数化图标按钮：leftClass 取 back-btn（返回）或 avatar-btn（头像入口），
+       返回类页面统一传 leftHref="javascript:history.back()"，随浏览历史相对返回上一层，不写死目标页。
+       login 等无标题栏页面传 navExtra="d-none" 隐藏标题栏。 -->
+</head>
+<body class="<?=$docClass?>">
+  <main class="app-phone <?=$phoneClass?>">
+    <!-- 顶部导航标题栏 -->
+    <header class="app-navbar <?=$navExtra?>">
+      <a href="<?=$leftHref?>" class="<?=$leftClass?>" aria-label="<?=$leftLabel?>">
+        <i class="bi <?=$leftIcon?>"></i>
+      </a>
+      <div class="nav-title"><?=$navTitle?></div>
+    </header>

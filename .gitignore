@@ -1,33 +1,7 @@
-# 依赖
-node_modules/
-
-# 构建产物
-dist/
-dist-ssr/
-.vite/
-
-# vite-plugin-xq-cp-dep 从 node_modules 拷贝生成的依赖目录
-/public/
-
-# 日志
-logs/
+node_modules
+html
+prototype.pdf
+# bootstrap-classic 插件在构建期把 vendor JS 拷进 public/，属生成物
+public/bootstrap
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# 环境变量
-.env
-.env.local
-.env.*.local
-
-# 编辑器/系统文件
 .DS_Store
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?

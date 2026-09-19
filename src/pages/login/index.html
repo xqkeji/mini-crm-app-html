@@ -1,0 +1,92 @@
+<xq-include file="/partials/app-header.html" title="客户关系管理 APP" docClass="app-page" phoneClass="app-card" navExtra="d-none" leftHref="#" leftClass="back-btn" leftIcon="bi-arrow-left" leftLabel="返回" navTitle="客户关系管理 APP"></xq-include>
+
+    <div class="text-center bg-primary text-white p-4 rounded login-title-box">
+      <h3 class="fw-bold mb-1">客户关系管理 APP</h3>
+      <p class="mb-0 opacity-75">请登录后继续使用</p>
+    </div>
+
+    <form id="loginForm" autocomplete="off">
+      <div class="mb-3">
+        <label for="account" class="form-label">账号</label>
+        <input type="text" class="form-control" id="account" name="account" placeholder="请输入账号" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">密码</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" required />
+      </div>
+
+      <div class="mb-4">
+        <label for="captcha" class="form-label">图像验证码</label>
+        <div class="d-flex align-items-center gap-2">
+          <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码" required />
+          <div class="text-center">
+            <svg id="captchaSvg" class="captcha-img" width="110" height="38" viewBox="0 0 110 38" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="验证码，点击刷新">
+              <title>点击刷新验证码</title>
+              <rect width="110" height="38" fill="#ffffff" />
+              <text x="55" y="27" font-size="24" font-family="monospace" font-weight="bold" fill="#0d6efd" text-anchor="middle">5826</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 py-2">登录</button>
+    </form>
+
+    <script type="module">
+      // 原型阶段：仅阻止真实提交
+      document.getElementById('loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        alert('登录已提交（原型演示）');
+      });
+
+      // 内联 SVG 命名空间
+      const SVG_NS = 'http://www.w3.org/2000/svg';
+      const captchaSvg = document.getElementById('captchaSvg');
+
+      // 创建 SVG 元素的工具函数
+      function svgEl(name, attrs, textContent) {
+        const node = document.createElementNS(SVG_NS, name);
+        for (const key in attrs) {
+          node.setAttribute(key, attrs[key]);
+        }
+        if (textContent != null) node.textContent = textContent;
+        return node;
+      }
+
+      // 生成一张示例验证码：4 位数字，直接往 <svg> 里画 <text>
+      function refreshCaptcha() {
+        let text = '';
+        for (let i = 0; i < 4; i++) {
+          text += Math.floor(Math.random() * 10);
+        }
+        // 清空旧内容（保留 hover 提示 <title>）
+        while (captchaSvg.firstChild) captchaSvg.removeChild(captchaSvg.firstChild);
+        captchaSvg.appendChild(svgEl('title', {}, '点击刷新验证码'));
+        captchaSvg.appendChild(svgEl('rect', { x: 0, y: 0, width: 110, height: 38, fill: '#ffffff' }));
+        // 逐字符轻微旋转，更像真实验证码（已去掉干扰线，保证数字清晰显示）
+        for (let i = 0; i < text.length; i++) {
+          const x = 20 + i * 24;
+          const y = 27 + Math.round(Math.random() * 6 - 3);
+          const rot = (Math.random() * 30 - 15).toFixed(0);
+          captchaSvg.appendChild(svgEl('text', {
+            x: x,
+            y: y,
+            'font-size': 24,
+            'font-family': 'monospace',
+            'font-weight': 'bold',
+            fill: '#0d6efd',
+            'text-anchor': 'middle',
+            transform: 'rotate(' + rot + ' ' + x + ' ' + y + ')',
+          }, text[i]));
+        }
+        return text;
+      }
+
+      // 点击刷新验证码
+      captchaSvg.addEventListener('click', refreshCaptcha);
+      // 首次进入即生成一组随机数字
+      refreshCaptcha();
+    </script>
+
+<xq-include file="/partials/app-footer.html"></xq-include>
