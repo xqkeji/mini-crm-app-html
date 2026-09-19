@@ -17,15 +17,16 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.13.1",
     "xq-util": "^1.0.4"
   },
   "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "playwright": "^1.49.0",
     "vite": "^8.0.0",
     "vite-plugin-xq-cp-dep": "^1.1.1",
     "vite-plugin-xq-include": "^1.1.1",
     "vite-plugin-xq-multi-input": "^1.1.0",
-    "xq-banner": "^1.0.10",
-    "playwright": "^1.49.0",
-    "pdf-lib": "^1.17.1"
+    "xq-banner": "^1.0.10"
   }
 }
